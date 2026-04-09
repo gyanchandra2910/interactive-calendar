@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --accent: #2563eb;
+    --accent-light: #bfdbfe;
+    --accent-dark: #1d4ed8;
+    --accent-subtle: #eff6ff;
+    --accent-text: #ffffff;
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-card: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --border: #334155;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: 'Inter', 'Outfit', system-ui, sans-serif;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+  }
+}
+
+@layer utilities {
+  .accent-bg { background-color: var(--accent); }
+  .accent-text { color: var(--accent); }
+  .accent-border { border-color: var(--accent); }
+  .accent-light-bg { background-color: var(--accent-light); }
+  .accent-subtle-bg { background-color: var(--accent-subtle); }
+
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  .ring-spiral {
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 14px,
+      rgba(255,255,255,0.15) 14px,
+      rgba(255,255,255,0.15) 16px
+    );
+  }
+}
